@@ -104,3 +104,5 @@ function sortTracksByListenTime(artistTracks) {
 function convertToMinutes(sec) {
   return parseInt(sec) / 60;
 }
+
+module.exports = {getAllTracks};
