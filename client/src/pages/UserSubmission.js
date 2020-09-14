@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ArtistInformation from '../components/ArtistInformation';
 
 class UserSubmission extends Component {
   constructor() {
     super();
-    this.state = { hasUserData: false };
+    this.state = { hasUserStats: false };
   }
 
   async getUserStats() {
     const userElem = document.getElementById("username");
     const username = userElem.value;
-    const userData = await fetch('/user-stats', {
+    const userStats = await fetch('/user-stats', {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -18,16 +19,13 @@ class UserSubmission extends Component {
       method: 'POST',
       body: JSON.stringify({ username })
     }).then((res) => res.json());
-    this.setState({ hasUserData: true, userData });
-    console.log(this.state)
+    this.setState({ hasUserStats: true, userStats });
   }
-
 
   render() {
     let info = <p></p>;
-    console.log('yes');
-    if (this.state.hasUserData) {
-      info = <div>{JSON.stringify(this.state.userData)}</div>
+    if (this.state.hasUserStats) {
+      info = <ArtistInformation userStats={this.state.userStats} />
     }
     return (
       <span>

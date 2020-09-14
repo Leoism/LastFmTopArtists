@@ -1,0 +1,16 @@
+.collapsible {
+  background-color: #444;
+  color: #eee;
+  cursor: pointer;
+  padding: 8px;
+  width: 11%;
+  border: none;
+  text-align: left;
+  outline: none;
+}
+
+.tracks {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
